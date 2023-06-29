@@ -17,7 +17,7 @@ const getStyles = () => ({
 
 const Person = props => {
 
-    const { id, firstName, lastName, year, make, model, price, personId } = props;
+    const { id, firstName, lastName, carId, year, make, model, price, personId } = props;
     const styles = getStyles();
     const [edit, setEdit] = useState(false);
     const { data: carsData } = useQuery(GET_CARS);
@@ -60,7 +60,7 @@ const Person = props => {
                     {firstName} {lastName}
                     {editCar ?
                         (<UpdateCar
-                            id={id}
+                            id={carId}
                             year={year}
                             make={make}
                             model={model}

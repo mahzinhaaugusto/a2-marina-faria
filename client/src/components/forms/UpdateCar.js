@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { UPDATE_CAR } from "../../queries";
 
 const UpdateCar = props => {
-    const { id, year, make, model, price, personId } = props;
+    const { carId, year, make, model, price, personId } = props;
     const [form] = Form.useForm();
     const [, forceUpdate] = useState();
     const [updateCar] = useMutation(UPDATE_CAR);
@@ -14,14 +14,14 @@ const UpdateCar = props => {
     }, []);
 
     const onFinish = values => {
-        const { year, make, model, price, personId } = values;
+        const { carId, year, make, model, price, personId } = values;
 
         const yearConvert = parseInt(year, 10);
         const priceConvert = parseFloat(price);
 
         updateCar({
             variables: {
-                id,
+                id: carId,
                 year: yearConvert,
                 make,
                 model,

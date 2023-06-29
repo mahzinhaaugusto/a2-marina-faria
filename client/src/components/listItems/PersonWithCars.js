@@ -2,6 +2,7 @@ import { useQuery } from "@apollo/client";
 import { Link, useParams } from "react-router-dom";
 import { PERSON_WITH_CARS } from "../../queries";
 import Person from "./Person";
+import { useEffect, useState } from "react";
 
 const getStyles = () => ({
     router: {
@@ -19,30 +20,44 @@ const PersonWithCars = () => {
         variables: { id: id }
     });
 
-    // console.log(data);
+    const [p, setP] = useState(null);
 
-    const { person } = data;
+    // console.log(data.person);
 
-    console.log(person);
+    useEffect(() => {
+        if (data && data.person !== null) {
+            const person = data.person;
+            // console.log(person);
+            setP(person);
+        }
+    }, [data]);
 
-    // const { firstName, lastName, cars } = person;
+    // const p = data.person;
 
-    // return (
-    //     <>
-    //         <Link
-    //             to={"/"}
-    //             style={styles.router}
-    //         >
-    //             Back to Main
-    //         </Link>
-    //         <Person
-    //             id={id}
-    //             firstName={firstName}
-    //             lastName={lastName}
-    //             cars={cars}
-    //         />
-    //     </>
-    // )
+    console.log(p);
+
+    if (!p) {
+        return <p>Loading...</p>
+    }
+
+    const { firstName, lastName, cars } = p;
+
+    return (
+        <>
+            <Link
+                to={"/"}
+                style={styles.router}
+            >
+                Back to Main
+            </Link>
+            <Person
+                id={id}
+                firstName={firstName}
+                lastName={lastName}
+                cars={cars}
+            />
+        </>
+    )
 }
 
 export default PersonWithCars;
