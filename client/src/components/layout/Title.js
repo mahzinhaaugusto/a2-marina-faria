@@ -4,7 +4,10 @@ const getStyles = () => ({
         fontWeight: "bold",
         padding: "15px",
         marginBottom: "50px",
-        borderBottom: "1px solid black",
+        borderBottom: "1px solid lightGray",
+        width: "100%",
+        textAlign: "center",
+
     }
 })
 

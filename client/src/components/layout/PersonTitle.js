@@ -1,9 +1,12 @@
 const getStyles = () => ({
     title: {
-        fontSize: 20,
+        fontSize: 18,
         fontWeight: "bold",
         padding: "15px",
-        marginBottom: "15px",
+        marginBottom: "50px",
+        borderBottom: "1px solid lightGray",
+        width: "100%",
+        textAlign: "center",
     }
 })
 

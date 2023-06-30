@@ -15,7 +15,6 @@ const AddCar = () => {
     const [addCar] = useMutation(ADD_CAR);
     const { data } = useQuery(GET_PEOPLE);
     const [selectedPerson, setSelectedPerson] = useState(null);
-    // const [priceFloat, setPriceFloat] = useState(null);
 
     useEffect(() => {
         forceUpdate({})
@@ -67,11 +66,6 @@ const AddCar = () => {
         </Option>
     ))
 
-    // const handlePriceChange = (e) => {
-    //     const value = e.target.value;
-    //     setPriceFloat(parseFloat(value));
-    // }
-
     if (!data || !data.people || data.people.length === 0) {
         return null;
     }
@@ -87,6 +81,8 @@ const AddCar = () => {
                 size="medium"
                 style={{
                     marginBottom: "40px",
+                    width: "100%",
+                    justifyContent: "center"
                 }}
             >
                 <Form.Item
@@ -99,6 +95,9 @@ const AddCar = () => {
                 >
                     <Input
                         placeholder="Year"
+                        style={{
+                            width: "100px"
+                        }}
                     />
                 </Form.Item>
                 <Form.Item
@@ -111,6 +110,9 @@ const AddCar = () => {
                 >
                     <Input
                         placeholder="Make"
+                        style={{
+                            width: "150px"
+                        }}
                     />
                 </Form.Item>
                 <Form.Item
@@ -123,6 +125,9 @@ const AddCar = () => {
                 >
                     <Input
                         placeholder="Model"
+                        style={{
+                            width: "150px"
+                        }}
                     />
                 </Form.Item>
                 <Form.Item
@@ -135,22 +140,27 @@ const AddCar = () => {
                 >
                     <Input
                         placeholder="$"
-                    // onChange={handlePriceChange}
-                    // value={priceFloat ? priceFloat.toLocaleString(undefined, { style: "currency", currency: "USD" }) : ""}
+                        style={{
+                            width: "100px"
+                        }}
                     />
                 </Form.Item>
-                <Select
-                    placeholder="Select a person"
-                    // title="Person"
-                    style={{
-                        width: 180,
-                        marginRight: 10
-                    }}
-                    onChange={handleChange}
-                    value={selectedPerson}
+                <Form.Item
+                    label="Person"
                 >
-                    {options}
-                </Select>
+                    <Select
+                        placeholder="Select a person"
+                        style={{
+                            width: "150px",
+                            marginRight: 10
+                        }}
+                        onChange={handleChange}
+                        value={selectedPerson}
+                    >
+                        {options}
+                    </Select>
+
+                </Form.Item>
                 <Form.Item
                     shouldUpdate={true}
                 >

@@ -8,11 +8,16 @@ const Car = props => {
     const { id, year, make, model, price, personId, handleCarBtnClicked } = props;
     // const [edit, setEdit] = useState(false);
 
+    const formatting = price.toLocaleString(undefined, {
+        style: "currency",
+        currency: "USD"
+    });
+
     return (
 
         <Card
             type="inner"
-            title={`${year} ${make} ${model} -> $ ${price}`}
+            title={`${year} ${make} ${model} -> ${formatting}`}
             style={{ marginTop: 16 }}
             actions={[
                 <EditOutlined

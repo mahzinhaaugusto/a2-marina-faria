@@ -63,6 +63,9 @@ const AddPerson = () => {
                 >
                     <Input
                         placeholder="First Name"
+                        style={{
+                            width: "150px"
+                        }}
                     />
                 </Form.Item>
                 <Form.Item
@@ -75,6 +78,9 @@ const AddPerson = () => {
                 >
                     <Input
                         placeholder="Last Name"
+                        style={{
+                            width: "150px"
+                        }}
                     />
                 </Form.Item>
                 <Form.Item
